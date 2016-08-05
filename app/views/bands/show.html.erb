@@ -1,0 +1,21 @@
+<%= link_to "Back to All Artists", bands_url, method: :get %>
+
+<h1><%= @band.name %></h1>
+
+<section>
+  <strong>Albums</strong>
+  <ul>
+      <% @band.albums.each do |album| %>
+        <li><%= link_to album.name, album_url(album.id), method: :get %></li>
+      <% end %>
+  </ul>
+</section>
+
+<section>
+  <strong>Link To</strong>
+  <ul>
+    <li><%= link_to "Add Album", new_band_album_url(@band.id), method: :get %></li>
+    <li><%= link_to "Edit Band", edit_band_url, method: :get %></li>
+    <li><%= link_to "Remove Band", band_url, method: :delete %></li>
+  </ul>
+</section>

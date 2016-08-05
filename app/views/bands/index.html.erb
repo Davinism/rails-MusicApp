@@ -1,0 +1,19 @@
+<h2>Welcome to the Best Music App Ever!</h2>
+
+<% content_for :header do %>
+  <p>
+    Signed in as: <%= current_user.email %>
+  </p>
+<% end %>
+
+<p>
+  Select your favorite artists:
+</p>
+<% @bands.each do |band| %>
+  <ul>
+    <li><%= link_to band.name, band_url(band) %></li>
+  </ul>
+<% end %>
+
+<br />
+<%= button_to "Create New Band", new_band_url, method: :get %>

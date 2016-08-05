@@ -1,0 +1,28 @@
+<% action_url = (action == :new) ? albums_url : album_url %>
+<% prompt_text = (action == :new) ? "Please enter the new album information: " :
+"Please update the information for #{album.name}:" %>
+<% button_name = (action == :new) ? "Add!" : "Update!" %>
+<% method_name = (action == :new) ? :post : :patch %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <p><%= prompt_text %></p>
+
+  <label>Title:
+    <input type="text" name="albums[name]" />
+  </label>
+
+  <br />
+
+  <label>Album Type:
+    <input type="radio" name="albums[album_type]" value="Studio" />Studio
+    <input type="radio" name="albums[album_type]" value="Live" />Live
+  </label>
+
+  <br />
+
+  <%= button_to button_name, action_url, method: method_name, params: {band_id: params[:band_id]} %>
+</form>

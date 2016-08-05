@@ -1,0 +1,19 @@
+<% action_url = (action == :new) ? bands_url : band_url %>
+<% prompt_text = (action == :new) ? "Please enter the new band information: " :
+"Please update the information for #{band.name}:" %>
+<% button_name = (action == :new) ? "Add!" : "Update!" %>
+<% method_name = (action == :new) ? :post : :patch %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <p><%= prompt_text %></p>
+
+  <label>Name:
+    <input type="text" name="bands[name]" />
+  </label>
+
+  <%= button_to button_name, action_url, method: method_name %>
+</form>

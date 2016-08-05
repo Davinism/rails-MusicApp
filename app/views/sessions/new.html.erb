@@ -1,0 +1,17 @@
+<h2>Welcome to MyMusicApp!</h2>
+
+<form action="<%= session_url %>", method="post">
+  <label>Email Account:
+    <input type="text" name="users[email]" />
+  </label>
+
+  <label>Password:
+    <input type="text" name="users[password]" />
+  </label>
+
+  <%= button_to "Sign In", session_url, method: :post %>
+</form>
+
+<br />
+
+<%= button_to "New User?", new_user_url, method: :get %>

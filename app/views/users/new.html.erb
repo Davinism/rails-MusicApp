@@ -1,0 +1,21 @@
+<h2>Welcome to MyMusicApp!</h2>
+
+<p>
+  Registration is easy!
+</p>
+
+<form action="<%= users_url %>" method="post">
+  <label>Please enter your email account:
+    <input type="text" name="users[email]" />
+  </label>
+
+  <label>Please make a secure password:
+    <input type="text" name="users[password]" />
+  </label>
+
+  <%= button_to "Register and Sign-in!", users_url, method: :post %>
+</form>
+
+<br />
+
+<%= button_to "Already Registered?", new_session_url, method: :get %>

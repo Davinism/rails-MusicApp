@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <h1><strong>Davin's Music Master</strong></h1>
+  <% if logged_in? %>
+      <%= signed_in_header %>
+      <%= button_to "Sign Out", session_url, method: :delete %>
+      <br />
+  <% end %>
+</header>
+
+<%= yield %>
+
+</body>
+</html>
